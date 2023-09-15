@@ -7,19 +7,25 @@
   <script src="https://cdn.ctat.cs.cmu.edu/releases/latest/ctat.min.js"></script>
   <script src="https://cdn.ctat.cs.cmu.edu/releases/latest/ctatloader.js"></script>
   
-  <script>
-    var myVars =
-    {
-       question_file: "../FinalBRDs/2-5+1-2.brd",
-       tutoring_service_communication: "javascript"
-    };
+<script>
+  var myVars =
+  {
+     question_file: "../FinalBRDs/2-5+1-2.brd",
+     tutoring_service_communication: "javascript"
+  };
  
-    // The CTAT JavaScript code looks for a ctatOnload() function and
-    // executes it automatically if it is defined in your tutor.
-    function ctatOnload() {
-      initTutor(myVars);
-    }
- </script>
+  // The CTAT JavaScript code looks for a ctatOnload() function and
+  // executes it automatically if it is defined in your tutor.
+  function ctatOnload() {
+    initTutor(myVars);
+
+    var logLibrary=commShell.getLoggingLibrary ();
+    logLibrary.assignLogListener (function logListener (aMessage)
+    {
+      console.log ("Log message: " + aMessage);
+    });
+  }
+</script>
   
   <style type="text/css">
     .CTATTextInput input { text-align: center; }
